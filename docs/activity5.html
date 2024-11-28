@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator with Dark/Light Mode</title>
+    <style> 
+        /* Default Light Mode Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            transition: background-color 0.3s, color 0.3s;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .dark-mode {
+            background-color: #2c2c2c;
+            color: #ffffff;
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Simple Calculator</h1>
+
+    <!-- Inputs for the numbers -->
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <button onclick="addNumbers()">Add</button>
+
+    <h2 id="result"></h2>
+
+    <!-- Toggle button for dark and light mode -->
+    <button onclick="toggleDarkMode()">Dark/Light Mode</button>
+
+    <script>
+        // Function to add two numbers
+        function addNumbers() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                const sum = num1 + num2;
+                document.getElementById('result').innerText = `Result: ${sum}`;
+            } else {
+                document.getElementById('result').innerText = "Please enter valid numbers.";
+            }
+        }
+
+        // Function to toggle dark/light mode
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+
+</body>
+</html>
